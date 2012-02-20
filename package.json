@@ -26,6 +26,6 @@
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "git://github.com/StevenLooman/straightcurve.git"
     }
 }
