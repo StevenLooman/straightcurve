@@ -5,13 +5,31 @@ module.exports = {
         var point = new sc.Vertex2(0, 0);
     },
 
-    'test distance': function(beforeExit, assert) {
+    'test distance Vertex2': function(beforeExit, assert) {
         var point1 = new sc.Vertex2(0, 0);
         var point2 = new sc.Vertex2(10, 0);
 
         var result = point1.distance(point2);
 
         assert.eql(result, 10);
+    },
+
+    'test distance Line2': function(beforeExit, assert) {
+        var point = new sc.Vertex2(0, 0);
+        var line = new sc.Line2(new sc.Vertex2(10, 0), new sc.Vertex2(10, 10));
+
+        var result = point.distance(line);
+
+        assert.eql(result, 10);
+    },
+
+    'test distance Circle2': function(beforeExit, assert) {
+        var point = new sc.Vertex2(0, 0);
+        var circle = new sc.Circle2(new sc.Vertex2(10, 0), 5);
+
+        var result = point.distance(circle);
+
+        //assert.eql(result, 5);
     },
 
     'test add vector': function(beforeExit, assert) {

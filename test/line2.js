@@ -44,11 +44,29 @@ module.exports = {
         assert.eql(result, { p0: { x: 0, y: 0 }, p1: { x: 0, y: 1 } });
     },
 
-    'test distance': function(beforeExit, assert) {
+    'test distance Vertex2': function(beforeExit, assert) {
         var line = new sc.Line2(new sc.Vertex2(0, 0), new sc.Vertex2(10, 0));
         var point = new sc.Vertex2(5, 5);
 
         var result = line.distance(point);
+
+        assert.eql(result, 5);
+    },
+
+    'test distance Line2': function(beforeExit, assert) {
+        var line1 = new sc.Line2(new sc.Vertex2(0, 0), new sc.Vertex2(10, 0));
+        var line2 = new sc.Line2(new sc.Vertex2(5, 0), new sc.Vertex2(15, 0));
+
+        var result = line1.distance(line2);
+
+        //assert.eql(result, 5);
+    },
+
+    'test distance Circle2': function(beforeExit, assert) {
+        var line = new sc.Line2(new sc.Vertex2(0, 0), new sc.Vertex2(10, 0));
+        var circle = new sc.Circle2(new sc.Vertex2(0, 10), 5);
+
+        var result = line.distance(circle);
 
         assert.eql(result, 5);
     },
