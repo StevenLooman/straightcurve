@@ -1,7 +1,7 @@
 {
     "name": "straightcurve",
     "description": "basic 2D geometry library",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Steven Looman <steven.looman@gmail.com>",
     "keywords": [ "geometry", "2d", "vertex", "vector", "line", "arc" ],
     "licenses" : [
