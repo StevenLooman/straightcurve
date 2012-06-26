@@ -69,5 +69,5 @@ module.exports = {
         var result = line.distance(circle);
 
         assert.eql(result, 5);
-    },
+    }
 };

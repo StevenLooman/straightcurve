@@ -30,6 +30,5 @@ module.exports = {
         var result = circle1.distance(circle2);
 
         assert.equal(result, 5);
-    },
-
+    }
 };

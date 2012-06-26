@@ -29,7 +29,7 @@ module.exports = {
         assert.eql(result, [
             new sc.Line2(new sc.Vertex2(0, 1.2246467991473532e-16), new sc.Vertex2(0.4999999999999998, 0.8660254037844385)),
             new sc.Line2(new sc.Vertex2(0.4999999999999998, 0.8660254037844385), new sc.Vertex2(1.5, 0.8660254037844387)),
-            new sc.Line2(new sc.Vertex2(1.5, 0.8660254037844387), new sc.Vertex2(2, 0)),
+            new sc.Line2(new sc.Vertex2(1.5, 0.8660254037844387), new sc.Vertex2(2, 0))
         ]);
     },
 
@@ -59,6 +59,5 @@ module.exports = {
 
             lastY = y;
         }
-    },
-
+    }
 };
