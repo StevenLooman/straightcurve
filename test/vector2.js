@@ -51,6 +51,16 @@ describe('Vector2', function() {
         });
     });
 
+    describe('#setLength()', function() {
+        it('should be able to set a new length of a Vector2', function() {
+            var vector = new sc.Vector2(1, 0);
+
+            vector.setLength(10);
+
+            assert.deepEqual(vector, { x: 10, y: 0 });
+        });
+    });
+
     describe('#angle()', function() {
         it('should be able to correctly get the angle between a Vector2 and a Vector2', function() {
             var vector1 = new sc.Vector2(0, 1);
