@@ -1,86 +1,107 @@
 var sc = require('../');
+var assert = require('assert');
 
-module.exports = {
-    'test create': function(beforeExit, assert) {
-        var vector = new sc.Vector2(0, 0);
-    },
+describe('Vector2', function() {
+    describe('Constructor', function() {
+        it('should construct', function() {
+            var vector = new sc.Vector2(0, 0);
+        });
+    });
 
-    'test normalize': function(beforeExit, assert) {
-        var vector = new sc.Vector2(50, 0);
+    describe('#normalize()', function() {
+        it('should be able to correctly normalize a Vector2', function() {
+            var vector = new sc.Vector2(50, 0);
 
-        vector.normalize();
+            vector.normalize();
 
-        assert.eql(vector, { x: 1, y: 0 });
-        assert.eql(vector.length(), 1);
-    },
+            assert.deepEqual(vector, { x: 1, y: 0 });
+            assert.equal(vector.length(), 1);
+        });
+    });
 
-    'test dot': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2( 2, 5);
-        var vector2 = new sc.Vector2(-3, 2);
+    describe('#dot()', function() {
+        it('should be able to correctly get the dot product of a Vector2', function() {
+            var vector1 = new sc.Vector2( 2, 5);
+            var vector2 = new sc.Vector2(-3, 2);
 
-        var result = vector1.dot(vector2);
+            var result = vector1.dot(vector2);
 
-        assert.eql(result, 4);
-    },
+            assert.equal(result, 4);
+        });
+    });
 
-    'test cross': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2( 0, 10);
-        var vector2 = new sc.Vector2(10,  0);
+    describe('#cross()', function() {
+        it('should be able to correctly get the cross product of a Vector2, with another Vector2', function() {
+            var vector1 = new sc.Vector2( 0, 10);
+            var vector2 = new sc.Vector2(10,  0);
 
-        var result = vector1.cross(vector2);
+            var result = vector1.cross(vector2);
 
-        assert.eql(result, -100);
-    },
+            assert.equal(result, -100);
+        });
+    });
 
-    'test angle': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2(0, 1);
-        var vector2 = new sc.Vector2(1, 0);
+    describe('#length()', function() {
+        it('should be able to correctly get the length of a Vector2', function() {
+            var vector = new sc.Vector2(10, 10);
 
-        var result = vector1.angle(vector2);
+            var result = vector.length();
 
-        assert.eql(result, Math.PI / 2);
-    },
+            assert.equal(result, 14.142135623730951);
+        });
+    });
 
-    'test length': function(beforeExit, assert) {
-        var vector = new sc.Vector2(10, 10);
+    describe('#angle()', function() {
+        it('should be able to correctly get the angle between a Vector2 and a Vector2', function() {
+            var vector1 = new sc.Vector2(0, 1);
+            var vector2 = new sc.Vector2(1, 0);
 
-        var result = vector.length();
+            var result = vector1.angle(vector2);
 
-        assert.eql(result, 14.142135623730951);
-    },
+            assert.equal(result, Math.PI / 2);
+        });
+    });
 
-    'test signedAngle': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2(0, -1);
-        var vector2 = new sc.Vector2(1,  0);
+    describe('#signedAngle()', function() {
+        it('should be able to correctly get the signed angle between a Vector2 and a Vector2', function() {
+            var vector1 = new sc.Vector2(0, -1);
+            var vector2 = new sc.Vector2(1,  0);
 
-        var result = vector1.signedAngle(vector2);
+            var result = vector1.signedAngle(vector2);
 
-        assert.eql(result, Math.PI / 2);
-    },
+            assert.equal(result, Math.PI / 2);
+        });
+    });
 
-    'test perp': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2(0, -1);
+    describe('#perp()', function() {
+        it('should be able to correctly get the perpendicular Vector2 of a Vector2', function() {
+            var vector1 = new sc.Vector2(0, -1);
 
-        var result = vector1.perp();
+            var result = vector1.perp();
 
-        assert.eql(result, { x: 1, y: 0 });
-    },
+            assert.deepEqual(result, { x: 1, y: 0 });
+        });
+    });
 
-    'test add vector': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2(50, 50);
-        var vector2 = new sc.Vector2(10, 10);
+    describe('#add()', function() {
+        it('should be able to correctly add a Vector2 to a Vector2', function() {
+            var vector1 = new sc.Vector2(50, 50);
+            var vector2 = new sc.Vector2(10, 10);
 
-        var result = vector1.add(vector2);
+            var result = vector1.add(vector2);
 
-        assert.eql(result, { x: 60, y: 60 });
-    },
+            assert.deepEqual(result, { x: 60, y: 60 });
+        });
+    });
 
-    'test sub vector': function(beforeExit, assert) {
-        var vector1 = new sc.Vector2(50, 50);
-        var vector2 = new sc.Vector2(10, 10);
+    describe('#sub()', function() {
+        it('should be able to correctly subtract a Vector2 from a Vector2', function() {
+            var vector1 = new sc.Vector2(50, 50);
+            var vector2 = new sc.Vector2(10, 10);
 
-        var result = vector1.sub(vector2);
+            var result = vector1.sub(vector2);
 
-        assert.eql(result, { x: 40, y: 40 });
-    }
-};
+            assert.deepEqual(result, { x: 40, y: 40 });
+        });
+    });
+});
